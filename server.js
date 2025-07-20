@@ -51,5 +51,8 @@ app.get("/get-token", (req, res) => {
   res.json({ token });
 });
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`✅ Backend running at http://localhost:${PORT}`));
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`✅ Backend running on port ${PORT}`);
+});
