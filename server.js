@@ -39,6 +39,16 @@ function generateToken(appId, userId, serverSecret, roomId) {
 
   return token;
 }
+app.get("/get-token", (req, res) => {
+  const { roomID, userID, userName } = req.query;
+
+  if (!roomID || !userID || !userName) {
+    return res.status(400).json({ error: "Missing parameters" });
+  }
+
+  const token = generateToken(appID, userID, serverSecret, roomID);
+  res.json({ token });
+});
 
   app.get("/api/get-token", (req, res) => {
 
