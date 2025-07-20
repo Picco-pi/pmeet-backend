@@ -40,7 +40,8 @@ function generateToken(appId, userId, serverSecret, roomId) {
   return token;
 }
 
-app.get("/get-token", (req, res) => {
+  app.get("/api/get-token", (req, res) => {
+
   const { roomID, userID, userName } = req.query;
 
   if (!roomID || !userID || !userName) {
